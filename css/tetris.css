@@ -1,0 +1,172 @@
+#tetris {
+	width:360px;
+	padding:10px;
+	background-color:#666;
+	position:relative;
+	font-size:16px;
+	font-family:Verdana, Arial, Sans-Serif;
+}
+#board {
+	float:left;	
+	position:relative;
+	background:url(../images/black_transp_pixel.png) left top repeat transparent;
+}
+#menu {
+	width:150px;
+	height:400px;
+	position:relative;
+	float:left;
+	margin-left:10px;
+}
+#scoreBoardWrapper, #levelDisplayWrapper {
+	list-style:none;
+	margin:0 auto 10px auto;
+	padding:0;
+}
+#scoreBoardLabel, #levelDisplayLabel {
+	float:left;
+	color:#fff;
+}
+#scoreBoard, #levelDisplay {
+	width:80px;
+	color:#fff;
+	text-align:right;
+	float:right;
+}
+#level {
+	border:1px solid #fff;
+	width:80px;
+	height:20px;
+	margin:0 auto 10px auto;
+	padding:7px;
+	color:#fff;
+	text-align:right;
+}
+.block {
+	width:19px;
+	height:19px;
+	margin-top:-1px;
+	margin-left:-1px;
+	float:left;
+	border:1px solid #555;
+}
+#carrier {
+	position:absolute;
+	width:25px;
+	height:25px;
+}
+#carrier .block {
+	border:0;
+	margin-top:0px;
+	margin-left:0px;
+	margin-bottom:1px;
+	margin-right:1px;
+}
+#preview {
+	width:100%;
+	margin:0 auto 10px;
+	padding:10px 30px;
+	background:url(../images/black_transp_pixel.png) left top repeat transparent;
+}
+#preview .block {
+	border:1px solid transparent;
+}
+#fixed {
+	border:1px solid #000;	
+}
+#startButton, #pauseButton, #optMenuButton {
+	font-size:20px;
+	font-weight:bold;
+	color:#ccc;
+	text-align:left;
+	margin:0 auto 10px auto;
+	cursor:pointer;	
+}
+#gameover {
+	width:200px;
+	height:350px;
+	background:url(../images/black_transp_pixel.png) left top repeat transparent;
+	position:absolute;
+	color:white;
+	padding-top:50px;
+	text-align:center;
+	display:none;
+}
+#optMenu {
+	width:0;
+	height:0;
+	background:url(../images/black_transp_pixel.png) left top repeat transparent;
+	position:absolute;
+	color:white;
+	padding-top:50px;
+	text-align:center;
+	overflow:hidden;
+}
+#optMenu #optMenuList {
+	margin:0 10px;
+	padding:0;
+	list-style:none;
+	font-size:75%;
+}
+#optMenu #optMenuList li {
+	clear:both;
+	padding:20px 0;
+}
+#optMenu .leftCol {
+	width:75px;
+	float:left;
+	color:yellow;
+	padding-top:3px;
+	text-align:left;
+}
+#optMenu .middleCol {
+	width:75px;
+	float:left;
+	padding-top:3px;
+}
+#optMenu .rightCol {
+	width:30px;
+	float:right;
+}
+#optMenu .optMenu_up {
+	width:21px;
+	height:15px;
+	background:url(../images/arrow_up.png) left top no-repeat transparent;
+}
+#optMenu .optMenu_down {
+	width:21px;
+	height:15px;
+	background:url(../images/arrow_down.png) left top no-repeat transparent;
+}
+#optMenu .optMenu_up:hover {
+	background:url(../images/arrow_up.png) right top no-repeat transparent;
+}
+#optMenu .optMenu_down:hover  {
+	background:url(../images/arrow_down.png) right top no-repeat transparent;
+}
+#optMenu input {
+	width:30px;
+	text-align:right;
+}
+#optMenu #optMenu_buttonWrapper {
+	clear:both;
+	width:80%;
+	padding:40px 10%;
+	font-weight:bold;
+}
+#optMenu #optMenu_saveButton {
+	cursor:pointer;
+	float:left;
+}
+#optMenu #optMenu_cancelButton {
+	cursor:pointer;
+	float:right;
+}
+.clearfix:after {
+	content:".";
+	display:block;
+	clear:both;
+	visibility:hidden;
+	line-height:0;
+	height:0;
+}
