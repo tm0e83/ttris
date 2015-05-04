@@ -247,6 +247,26 @@
 				}
 			}
 
+			// brick carrier
+			$('#' + this.options.board).append('<div id="' + self.options.carrier + '"></div>');
+
+			// carrier grid
+			for(row = 1; row <= 4; row++) {
+				for(var column = 1; column <= 4; column++) {
+
+					var columnClass = 'block row_' + row + ' col_' + column;
+					if(column === 10) {
+						columnClass += ' last';
+					}
+
+					if(column === 1) {
+						columnClass += ' first';
+					}
+
+					$('#' + this.options.carrier).append('<div style="width:' + self.brickWidth + '%; height:' + self.brickHeight + '%" class="' + columnClass + '"></div>');
+				}
+			}
+
 			// option menu
 			$('#' + this.options.board).append('<div id="' + this.options.optMenu + '"></div>');
 			$('#' + this.options.optMenu).append('<ul id="' + this.options.optMenuList + '"></ul>');
@@ -299,26 +319,6 @@
 					'<div id="' + self.options.optMenuButton + '" class="' + self.options.clearfixClass + '">' + self.options.optMenuButtonText + '</div>' +
 				'</div>'
 			);
-
-			// brick carrier
-			$('#' + this.options.board).append('<div id="' + self.options.carrier + '"></div>');
-
-			// carrier grid
-			for(row = 1; row <= 4; row++) {
-				for(var column = 1; column <= 4; column++) {
-
-					var columnClass = 'block row_' + row + ' col_' + column;
-					if(column === 10) {
-						columnClass += ' last';
-					}
-
-					if(column === 1) {
-						columnClass += ' first';
-					}
-
-					$('#' + this.options.carrier).append('<div style="width:' + self.brickWidth + '%; height:' + self.brickHeight + '%" class="' + columnClass + '"></div>');
-				}
-			}
 		};
 
 		this.startNewGame = function() {
@@ -352,12 +352,16 @@
 			$('#' + self.options.levelDisplay).html(self.level);
 			$('#' + self.options.carrier + ' .' + self.options.block).css({
 				'top': 0,
-				'left': 0
+				'left': 0,
+				'background': 'transparent'
 			});
+			$('#' + self.options.carrier + ' .' + self.options.block).removeClass('colored');
 			$('#' + self.options.preview + ' .' + self.options.block).removeAttr('style');
 			$('#' + self.options.board + ' .' + self.options.blocked).each(function(index, block) {
 				$(block).removeClass(self.options.blocked);
-				$(block).removeAttr('style');
+				$(block).css({
+					'background': 'transparent'
+				});
 			});
 		};
 
@@ -392,7 +396,7 @@
 		// reset, restart on top with new block
 		this.gameRoutine = function() {
 			var self = this;
-			self.x = 0;
+			self.x = 3;
 			self.y = 0;
 
 			self.updateScore();
@@ -678,20 +682,14 @@
 
 		this.toggleOptMenu = function(action) {
 			var properties;
-			if(action == 'hide') {
+			if($('#' + this.options.optMenu).hasClass('active') === false) {
 				properties = {
-					'opacity': 0,
-					'width': 0,
-					'height': 0,
-					'left': 100,
-					'top': 175
+					'left': 0,
+					'top': 0
 				};
 			} else {
 				properties = {
-					'opacity': 100,
-					'width': 200,
-					'height': 350,
-					'left': 0,
+					'left': '-100%',
 					'top': 0
 				};
 			}
