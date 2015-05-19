@@ -1,7 +1,7 @@
 ;(function($, window) {
 	'use strict';
 
-	$.Tetris = function(element, options) {
+	$.Ttris = function(element, options) {
 		this.options = {};
 
 		this.x = 0;						// carrier column position
@@ -34,7 +34,7 @@
 
 		this.init = function(element, options) {
 			var self = this;
-			self.options = $.extend({}, $.Tetris.defaults, options);
+			self.options = $.extend({}, $.Ttris.defaults, options);
 			self.brickWidth = 100 / self.options.cols;
 			self.brickHeight = 100 / self.options.rows;
 			self.buildBoard();
@@ -49,10 +49,8 @@
 			var self = this;
 
 			var proportion = self.options.cols / self.options.rows;
-
 			var maxBlockHeight = $('#columnLeft').height() / self.options.cols;
 			var maxBlockWidth = $('#columnLeft').width() / self.options.rows;
-
 			var blockSize = (maxBlockHeight < maxBlockWidth) ? maxBlockHeight : maxBlockWidth;
 
 			$('#board').css({
@@ -69,7 +67,6 @@
 			$('#preview>div').css({
 				'height': $('#preview>div').width() + 'px'
 			});
-
 		};
 
 		this.addEvents = function() {
@@ -716,14 +713,14 @@
 		this.init(element, options);
 	};
 
-	$.fn.tetris = function(options) {
+	$.fn.ttris = function(options) {
 		return this.each(function() {
-			new $.Tetris($(this), options);
+			new $.Ttris($(this), options);
 		});
 	};
 
-	$.Tetris.defaults = {
-		wrapper: 'tetris',
+	$.Ttris.defaults = {
+		wrapper: 'ttris',
 		board: 'board',
 		menu: 'menu',
 		levelDisplayWrapper: 'levelDisplayWrapper',
